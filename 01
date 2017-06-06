@@ -1,0 +1,60 @@
+package sipan;
+import java.math.*;
+/**
+ * Created by k70 on 2017-06-05.
+ */
+class Stacks{
+    class stack{
+        public int aa;
+        public int ll;
+        public int xi;
+        public int yi;
+        public int color;
+    }
+    public stack[] data;
+    public int Top;
+    public int Down;
+    public Stacks(int n){
+        int x=(new Double(Math.log(n))).intValue();
+        data=new stack[x];
+        Top=0;
+        Down=0;
+    }
+    //ya
+    public void push(int a,int l,int  x,int y){
+        Top++;
+        data[Top].aa=a;
+        data[Top].ll=l;
+        data[Top].xi=x;
+        data[Top].yi=y;
+
+    }
+}
+public class fgai {
+    private int[][] DataPoint;
+    private Stacks st;
+    private int l;
+    public fgai(int n){
+        DataPoint=new int[n][n];
+        l=n;
+        st=new Stacks(n);
+    }
+    //
+    public void Increase(){
+
+
+    }
+    //point?
+    public void Inkk(int x1,int y1){
+        DataPoint[x1][y1]=-1;
+    }
+    public void Revoke(){
+
+    }
+    public boolean StepOne(){
+        boolean b=false;
+
+        return b;
+    }
+
+}
