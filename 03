@@ -45,6 +45,8 @@ public class fgai {
     }
     //
     public boolean Increase(){
+    if(st.Down==st.Top)
+            return true;
         int[] xy=new int[4];
         int xmid=st.data[st.Down].xa+st.data[st.Down].ll/2;
         int ymid=st.data[st.Down].ya+st.data[st.Down].ll/2;
