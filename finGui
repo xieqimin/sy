@@ -83,7 +83,7 @@ public class QiGui extends JFrame{
     public static void main(String args[]){
         QiGui frame=new QiGui();
         frame.setTitle("Qipan");
-        frame.setSize(800,800);
+        frame.setSize(500,400);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -105,27 +105,31 @@ class Pain extends JPanel {
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int a=25;
-        g.setColor(Color.YELLOW);
+        int cc=Math.min(getHeight(),getWidth());
+        //int dd=new Double(Math.random()*3).intValue();
+        int a=cc/data.length;
+        int xmid=getWidth()/2-data.length*a/2;
+        int ymid=getHeight()/2-data.length*a/2;
+
         for(int i=0;i<data.length;i++){
             for(int j=0;j<data[0].length;j++){
                 if(data[i][j]==1){
-                    g.setColor(Color.YELLOW);
-                g.fillRect(a*i,a*j,a,a);
+                    g.setColor(Color.green);
+                g.fillRect(xmid+a*i,ymid+a*j,a,a);
                 }
                 if(data[i][j]==-1){
                     g.setColor(Color.RED);
-                    g.fillRect(a*i,a*j,a,a);
+                    g.fillRect(xmid+a*i,ymid+a*j,a,a);
                 }
             }
         }
         g.setColor(Color.BLACK);
         for(int ii=0;ii<=data.length;ii++){
 
-            g.drawLine(0,a*ii,a*data[0].length,a*ii);
+            g.drawLine(xmid+0,ymid+a*ii,xmid+a*data[0].length,ymid+a*ii);
         }
         for(int j=0;j<=data[0].length;j++){
-            g.drawLine(j*a,0,j*a,a*data.length);
+            g.drawLine(xmid+j*a,ymid+0,xmid+j*a,ymid+a*data.length);
         }
 
     }
