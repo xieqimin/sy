@@ -134,3 +134,57 @@ class Pain extends JPanel {
 
     }
 }
+public class Gui extends JFrame {
+    private Pain pp=new Pain();
+    private fgai ff;
+    private JButton OneStepp=new JButton("OneStep");
+    private JButton Revosp=new JButton("Revoke");
+    public   Gui(){
+
+
+        JPanel p1=new JPanel(new GridLayout(2,2));
+        p1.add(OneStepp);
+        p1.add(Revosp);
+        setLayout(new BorderLayout());
+
+
+
+        add(pp,BorderLayout.CENTER);
+        add(p1,BorderLayout.SOUTH);
+
+
+        OneStepp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                boolean b= ff.Increase();
+                pp.repaint();
+            }
+        });
+
+        Revosp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                boolean b= ff.Revoke();
+                pp.repaint();
+            }
+        });
+    }
+    public void setn(int n){
+        ff=new fgai(n);
+        pp.setData(ff.getst());
+    }
+    public void setxy(int x,int y){
+        ff.Inkk(x,y);
+    }
+    public static void main(String args[]){
+
+        Gui frame=new Gui();
+        frame.setTitle("Qipan");
+        frame.setSize(800,800);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+
+    }
+}
